@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "acountiapp": {
+      "hosting": {
+        "acounti": [
+          "acountiapp"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "acountiapp"
+  }
+}
