@@ -1,19 +1,17 @@
-# Accounti
+# Acounti
+Acounti is an app for personal account management and reporting.
+***
+***
+# Logbook
+## [0.0.1] - 2022-01-09
+### Added
+- Added project name.
+- Defined objectives.
+- Added project flows.
+***
+## [0.0.1] - 2022-03-13
+### Updated
+- Updated project flow.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Added 
+- Added UI files and UI Kit.
