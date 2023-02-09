@@ -1,0 +1,39 @@
+$icons-font: "icons";
+
+@font-face {
+    font-family: $icons-font;
+    src: url("./icons.woff?28f30942363bacde5eb5612633decf7b") format("woff"),
+url("./icons.woff2?28f30942363bacde5eb5612633decf7b") format("woff2"),
+url("./icons.ttf?28f30942363bacde5eb5612633decf7b") format("truetype");
+}
+
+i[class^="i-"]:before, i[class*=" i-"]:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$icons-map: (
+    "arrow-down": "\f101",
+    "chevron-left": "\f102",
+    "home": "\f103",
+    "user": "\f104",
+);
+
+.i-arrow-down:before {
+    content: map-get($icons-map, "arrow-down");
+}
+.i-chevron-left:before {
+    content: map-get($icons-map, "chevron-left");
+}
+.i-home:before {
+    content: map-get($icons-map, "home");
+}
+.i-user:before {
+    content: map-get($icons-map, "user");
+}

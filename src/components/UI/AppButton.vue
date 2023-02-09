@@ -1,104 +1,60 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  props: {
+    type: {
+      type: String,
+      default: 'button',
+      validator: (val: string) => ['button', 'submit', 'reset'].includes(val),
+    },
+
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+
+    size: {
+      type: String,
+      default: 'md',
+      validator: (val: string) => ['sm', 'md', 'lg'].includes(val),
+    },
+
+    style: {
+      type: String,
+      default: 'solid',
+      validator: (val: string) => ['solid', 'outline'].includes(val),
+    },
+
+    color: {
+      type: String,
+      default: 'default',
+      validator: (val: string) => ['primary', 'secondary', 'tertiary'].includes(val),
+    },
+
+    icon: {
+      type: String, // icon-*
+      default: null,
+    },
+  },
+  computed: {
+    buttonAttributes(): Record<string, any> {
+      return {
+        type: this.type,
+        disabled: this.disabled,
+        class: {
+          btn: true,
+          [`btn-${this.size}`]: !!this.size,
+          [`btn-${this.style}`]: !!this.style,
+          [`btn--${this.color}`]: !!this.color,
+        },
+      }
+    },
+  },
+})
+</script>
 <template>
-<button 
-  :type="btnType"
-  :class="`btn btn-${btnStyle} btn--${btnColor} btn-${btnSize}`"
-  :disabled="btnDisabled">
+  <button v-bind="buttonAttributes">
     <slot></slot>
   </button>
 </template>
-
-
-<script>
-
-  export default {
-    name: 'AppButton',
-    props: {
-      btnType: {
-        type: String,
-        default: 'button'
-      },
-      btnStyle: {
-        type: String,
-        default: 'default'
-      },
-      btnColor: {
-        type: String,
-        default: 'default'
-      },
-      btnSize: {
-        type: String, // lg, md, sm
-        default: 'lg'
-      },
-      btnDisabled: {
-        type: Boolean,
-        default: false
-      },
-      btnIcon: {
-        type: String, // icon-left, icon-right, icon-button
-        default: ''
-      }
-    },
-    computed: {
-      // btnClass() {
-      //   return `btn btn--${this.btnColor} btn--${this.btnSize}`;
-      // }
-    }
-  }
-
-</script>
-
-
-<style lang="scss" scoped>
-  @import "./../../assets/stylesheets/variables";
-  .btn {
-    border: none;
-    background: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    font-size: 48px;
-    padding-left: 16px;
-    padding-right: 16px;
-    &-solid {
-      background: #f5f5f5;
-      color: $dark;
-      border-radius: 16px;
-      font-weight: 800;
-      border: 2px solid $dark;
-    }
-
-    /** BUTTON SIZES  */
-    &-sm {
-      font-size: 16px;
-      line-height: 32px;
-      border-radius: 10px;
-      box-shadow: 0px 2px 0px $dark;
-    }
-    &-md {
-      font-size: 18px;
-      line-height: 42px;
-      border-radius: 14px;
-      box-shadow: 0px 3px 0px $dark;
-    }
-    &-lg {
-      font-size: 21px;
-      line-height: 54px;
-      border-radius: 16px;
-      box-shadow: 0px 4px 0px $dark;
-    }
-    /** BUTTON SIZES  */
-
-
-    /** BUTTON COLORS  */
-    @each $name, $color in $colors {
-      &--#{$name} {
-        background: $color;
-        color: $dark;
-        border-radius: 16px;
-        &:hover {
-          box-shadow: none;
-          background-color: darken($color: $color, $amount: 8%);
-        }
-      }
-    }
-  }
-</style>
