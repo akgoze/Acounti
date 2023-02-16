@@ -10,7 +10,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "icon-generate": "fantasticon src/assets/icons -o src/assets/stylesheets/icons -p i --normalize -t woff woff2 ttf -g scss"
+    "icon-generate": "fantasticon src/assets/icons -o src/assets/stylesheets/icons -p icon --normalize -t woff woff2 ttf -g scss"
   },
   "dependencies": {
     "fantasticon": "^2.0.0",
