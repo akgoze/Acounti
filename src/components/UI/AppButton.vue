@@ -36,7 +36,14 @@ export default defineComponent({
       type: String, // icon-*
       default: null,
     },
+
+    iconPosition: {
+      type: String,
+      default: "before",
+      validator: (val: string) => ["before", "after"].includes(val),
+    },
   },
+
   computed: {
     buttonAttributes(): Record<string, any> {
       return {
@@ -47,11 +54,13 @@ export default defineComponent({
           [`btn-${this.size}`]: !!this.size,
           [`btn-${this.style}`]: !!this.style,
           [`btn--${this.color}`]: !!this.color,
+          [`btn--icon icon-${this.icon}`]: !!this.icon,
+          "btn--icon-after": this.iconPosition == "after",
         },
-      }
+      };
     },
   },
-})
+};
 </script>
 <template>
   <button v-bind="buttonAttributes">
