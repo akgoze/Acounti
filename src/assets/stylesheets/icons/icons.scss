@@ -2,12 +2,13 @@ $icons-font: "icons";
 
 @font-face {
     font-family: $icons-font;
-    src: url("./icons.woff?28f30942363bacde5eb5612633decf7b") format("woff"),
-url("./icons.woff2?28f30942363bacde5eb5612633decf7b") format("woff2"),
-url("./icons.ttf?28f30942363bacde5eb5612633decf7b") format("truetype");
+    src: url("./icons.woff?c91505272d5fa8ae6df73ec511868e9d") format("woff"),
+        url("./icons.woff2?c91505272d5fa8ae6df73ec511868e9d") format("woff2"),
+        url("./icons.ttf?c91505272d5fa8ae6df73ec511868e9d") format("truetype");
 }
 
-i[class^="i-"]:before, i[class*=" i-"]:before {
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
     font-family: icons !important;
     font-style: normal;
     font-weight: normal !important;
@@ -20,20 +21,44 @@ i[class^="i-"]:before, i[class*=" i-"]:before {
 
 $icons-map: (
     "arrow-down": "\f101",
-    "chevron-left": "\f102",
-    "home": "\f103",
-    "user": "\f104",
+    "arrow-left": "\f102",
+    "arrow-right": "\f103",
+    "arrow-up": "\f104",
+    "chevron-bottom": "\f105",
+    "chevron-left": "\f106",
+    "chevron-right": "\f107",
+    "chevron-up": "\f108",
+    "home": "\f109",
+    "user": "\f10a",
 );
 
-.i-arrow-down:before {
+.icon-arrow-down:before {
     content: map-get($icons-map, "arrow-down");
 }
-.i-chevron-left:before {
+.icon-arrow-left:before {
+    content: map-get($icons-map, "arrow-left");
+}
+.icon-arrow-right:before {
+    content: map-get($icons-map, "arrow-right");
+}
+.icon-arrow-up:before {
+    content: map-get($icons-map, "arrow-up");
+}
+.icon-chevron-bottom:before {
+    content: map-get($icons-map, "chevron-bottom");
+}
+.icon-chevron-left:before {
     content: map-get($icons-map, "chevron-left");
 }
-.i-home:before {
+.icon-chevron-right:before {
+    content: map-get($icons-map, "chevron-right");
+}
+.icon-chevron-up:before {
+    content: map-get($icons-map, "chevron-up");
+}
+.icon-home:before {
     content: map-get($icons-map, "home");
 }
-.i-user:before {
+.icon-user:before {
     content: map-get($icons-map, "user");
 }

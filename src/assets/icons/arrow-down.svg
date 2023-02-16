@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="752pt" height="752pt" version="1.1" viewBox="0 0 752 752" xmlns="http://www.w3.org/2000/svg">
- <path d="m385.23 544.02 60.945-82.75c5.5898-9.5039 2.2383-14.539-7.8281-15.656h-43.613v-225.33c0-8.3867-6.7109-15.098-15.098-15.098-8.9453 0-15.656 6.7109-15.656 15.098v225.33h-46.965c-14.539 0.55859-16.773 6.1523-11.184 15.656l68.773 82.75c2.7969 3.3555 6.7109 3.9141 10.625 0z" fill-rule="evenodd"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;}
+</style>
+<path class="st0" d="M12.4,21.6l3.6-4.7c0.3-0.5,0.1-0.8-0.4-0.9h-2.4c-0.2,0-0.3-0.1-0.3-0.3V3.1c0-0.5-0.4-0.9-0.9-0.9
+	c-0.5,0-0.9,0.4-0.9,0.9v12.6c0,0.2-0.1,0.3-0.3,0.3H8.6c-0.8,0-1,0.4-0.6,0.9l3.8,4.7C11.9,21.8,12.1,21.8,12.4,21.6L12.4,21.6z"/>
 </svg>
