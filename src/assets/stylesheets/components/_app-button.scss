@@ -36,6 +36,18 @@
   }
   /** BUTTON SIZES  */
 
+  &--icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    &-after {
+      flex-direction: row-reverse;
+    }
+    &::before {
+      font-size: 20px;
+    }
+  }
+
   /** BUTTON COLORS  */
   @each $name, $color in $colors {
     &--#{$name} {

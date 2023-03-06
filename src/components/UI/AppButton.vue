@@ -1,66 +1,38 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { computed } from "vue";
 
-export default defineComponent({
-  props: {
-    type: {
-      type: String,
-      default: 'button',
-      validator: (val: string) => ['button', 'submit', 'reset'].includes(val),
-    },
+export interface Props {
+  type?: string
+  disabled?: boolean
+  size?: string
+  style?: string
+  color?: string
+  icon?: string
+  iconPosition?: string
+}
 
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+const props = withDefaults(defineProps<Props>(), {
+  type: 'button',
+  disabled: false,
+  size: 'md',
+  style: 'solid',
+  color: 'default',
+  icon: '',
+  iconPosition: 'before',
+})
 
-    size: {
-      type: String,
-      default: 'md',
-      validator: (val: string) => ['sm', 'md', 'lg'].includes(val),
+const buttonAttributes = computed(function (): Record<string, any> {
+  return {
+    type: props.type,
+    disabled: props.disabled,
+    class: {
+      [`btn btn-${props.size} btn-${props.style}`]: true,
+      [`btn--${props.color}`]: props.color,
+      [`btn--icon icon-${props.icon}`]: props.icon != '',
+      [`btn--icon-${props.iconPosition}`]: true,
     },
-
-    style: {
-      type: String,
-      default: 'solid',
-      validator: (val: string) => ['solid', 'outline'].includes(val),
-    },
-
-    color: {
-      type: String,
-      default: 'default',
-      validator: (val: string) => ['primary', 'secondary', 'tertiary'].includes(val),
-    },
-
-    icon: {
-      type: String, // icon-*
-      default: null,
-    },
-
-    iconPosition: {
-      type: String,
-      default: "before",
-      validator: (val: string) => ["before", "after"].includes(val),
-    },
-  },
-
-  computed: {
-    buttonAttributes(): Record<string, any> {
-      return {
-        type: this.type,
-        disabled: this.disabled,
-        class: {
-          btn: true,
-          [`btn-${this.size}`]: !!this.size,
-          [`btn-${this.style}`]: !!this.style,
-          [`btn--${this.color}`]: !!this.color,
-          [`btn--icon icon-${this.icon}`]: !!this.icon,
-          "btn--icon-after": this.iconPosition == "after",
-        },
-      };
-    },
-  },
-};
+  }
+})
 </script>
 <template>
   <button v-bind="buttonAttributes">

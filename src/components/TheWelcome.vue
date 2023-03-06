@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import AppButton from './UI/AppButton.vue'
 import AppInput from './UI/AppInput.vue'
+import AppButton from './UI/AppButton.vue'
 </script>
 
 <template>
-  <AppButton type="button" size="md" color="yellow">Button Test</AppButton>
+  <app-button :type="'button'" :size="'md'" color="yellow" icon-position="after">Button Test</app-button>
+
   <AppInput type="email" size="sm" placeholder="Write an email" />
 </template>
