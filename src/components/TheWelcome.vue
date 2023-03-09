@@ -4,7 +4,10 @@ import AppButton from './UI/AppButton.vue'
 </script>
 
 <template>
-  <app-button :type="'button'" :size="'md'" color="yellow" icon-position="after">Button Test</app-button>
+  <AppButton :type="'button'" :size="'md'" color="yellow" icon-position="after">Button Test</AppButton>
 
-  <AppInput type="email" size="sm" placeholder="Write an email" />
+  <AppInput type="email" size="sm" placeholder="Write an email" :icon-position="'after'" :icon="'user'" />
+  <AppInput type="email" size="sm" placeholder="Write an email" :icon="'user'" />
+  <AppInput type="email" size="sm" placeholder="Write an email" :icon="'user'" disabled />
+  <AppInput type="email" size="sm" placeholder="Write an email" :icon="'user'" readonly />
 </template>

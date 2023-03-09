@@ -1,65 +1,55 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { computed, reactive, ref } from 'vue'
 
-export default defineComponent({
-  props: {
-    type: {
-      type: String,
-      default: null,
-    },
+export interface Props {
+  type?: string
+  placeholder?: string
+  inputmode?: string
+  icon: string | null
+  iconPosition?: 'after' | 'before' | null
+  disabled: boolean
+  readonly: boolean
+}
 
-    placeholder: {
-      type: String,
-      default: null,
-    },
+const onFocus = ref(false)
 
-    inputmode: {
-      type: String,
-      default: null,
-    },
+const props = withDefaults(defineProps<Props>(), {
+  type: '',
+  placeholder: '',
+  inputmode: 'input',
+  icon: null,
+  iconPosition: null,
+  disabled: false,
+  readonly: false,
+})
 
-    position: {
-      type: String,
-      default: null,
-      validation: (val: string) => ['after', 'before', null].includes(val),
+const inputAttributes = computed(function (): Record<string, any> {
+  return {
+    type: props.type,
+    readonly: props.readonly,
+    disabled: props.disabled,
+    inputmode: props.inputmode,
+    placeholder: props.placeholder,
+    class: {
+      'form-input': true,
     },
+  }
+})
 
-    icon: {
-      type: String,
-      default: null,
-      validation: (val: string) => ['after', 'before', null].includes(val),
-    },
-
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-
-    readonly: {
-      type: Boolean,
-      default: false,
-    },
-  },
-
-  computed: {
-    inputAttributes(): Record<string, any> {
-      return {
-        type: this.type,
-        readonly: this.readonly,
-        disabled: this.disabled,
-        inputmode: this.inputmode,
-        placeholder: this.placeholder,
-        class: {
-          'form-input': true,
-        },
-      }
-    },
-  },
+const formGroupClasses = computed(function (): Record<string, any> {
+  return {
+    'form-group': true,
+    'form-group--disabled': props.disabled,
+    'form-group--readonly': props.readonly,
+    [`icon-${props.icon}`]: !!props.icon,
+    [`form-group--onfocus`]: onFocus.value,
+    [`icon icon--${props.iconPosition}`]: !!props.iconPosition,
+  }
 })
 </script>
 
 <template>
-  <div class="form-group" :class="[position == 'icon-left' ? 'icon' : 'icon icon--after', icon]">
-    <input v-bind="inputAttributes" />
+  <div v-bind:class="formGroupClasses">
+    <input v-bind="inputAttributes" @focus="onFocus = true" @blur="onFocus = false" />
   </div>
 </template>
