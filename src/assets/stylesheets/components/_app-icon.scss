@@ -1,0 +1,26 @@
+.icon {
+  display: inline-flex;
+  &--sm {
+    font-size: 16px;
+  }
+  &--md {
+    font-size: 24px;
+  }
+  &--lg {
+    font-size: 36px;
+  }
+  &--rounded {
+    padding: 2%;
+    border-radius: 50%;
+  }
+
+  /** BUTTON COLORS  */
+  @each $name, $color in $colors {
+    &--bg-#{$name} {
+      background-color: rgba($color: $color, $alpha: 0.3);
+    }
+    &--#{$name} {
+      color: rgba($color: $color, $alpha: 1);
+    }
+  }
+}
