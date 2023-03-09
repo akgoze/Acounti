@@ -1,37 +1,33 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { computed } from 'vue'
 
-export default defineComponent({
-  props: {
-    icon: {
-      type: String,
-      required: true,
-    },
+export interface Props {
+  icon: string
+  size: 'sm' | 'md' | 'lg'
+  color: string
+  rounded?: boolean
+  bgColor?: string
+}
 
-    size: {
-      type: String,
-      default: 'md',
-      validator: (val: string) => ['sm', 'md', 'lg'].includes(val),
-    },
+const props = withDefaults(defineProps<Props>(), {
+  icon: '',
+  size: 'md',
+  color: 'dark',
+  rounded: false,
+  bgColor: '',
+})
 
-    color: {
-      type: String,
-      default: 'black',
+const iconAttributes = computed(function (): Record<string, any> {
+  return {
+    class: {
+      icon: true,
+      [`icon-${props.icon}`]: true,
+      'icon--rounded': props.rounded,
+      [`icon--${props.size}`]: !!props.size,
+      [`icon--${props.color}`]: !!props.color,
+      [`icon--bg-${props.bgColor}`]: !!props.bgColor,
     },
-  },
-
-  computed: {
-    iconAttributes(): Record<string, any> {
-      return {
-        class: {
-          icon: true,
-          [`icon-${this.icon}`]: true,
-          [`icon--${this.size}`]: !!this.size,
-          [`icon--${this.color}`]: !!this.color,
-        },
-      }
-    },
-  },
+  }
 })
 </script>
 
