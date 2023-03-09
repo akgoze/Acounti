@@ -14,7 +14,7 @@ export interface Props {
 const onFocus = ref(false)
 
 const props = withDefaults(defineProps<Props>(), {
-  type: '',
+  type: 'text',
   placeholder: '',
   inputmode: 'input',
   icon: null,
