@@ -8,11 +8,11 @@
   padding-right: 16px;
 
   &-solid {
-    background: #f5f5f5;
-    color: $dark;
+    background: theme("colors.dark.100");
+    color: theme("colors.dark.950");
     border-radius: 16px;
     font-weight: 800;
-    border: 2px solid $dark;
+    border: 2px solid theme("colors.dark.950");
   }
 
   /** BUTTON SIZES  */
@@ -20,19 +20,19 @@
     font-size: 16px;
     line-height: 32px;
     border-radius: 10px;
-    box-shadow: 0px 2px 0px $dark;
+    box-shadow: 0px 2px 0px theme("colors.dark.950");
   }
   &-md {
     font-size: 18px;
     line-height: 42px;
     border-radius: 14px;
-    box-shadow: 0px 3px 0px $dark;
+    box-shadow: 0px 3px 0px theme("colors.dark.950");
   }
   &-lg {
     font-size: 21px;
     line-height: 54px;
     border-radius: 16px;
-    box-shadow: 0px 4px 0px $dark;
+    box-shadow: 0px 4px 0px theme("colors.dark.950");
   }
   /** BUTTON SIZES  */
 
@@ -48,15 +48,16 @@
     }
   }
 
-  /** BUTTON COLORS  */
-  @each $name, $color in $colors {
-    &--#{$name} {
-      background: $color;
-      color: $dark;
+  $colors: "yellow", "green", "blue";
+
+  @each $color in $colors {
+    &--#{$color} {
+      background: theme("colors.#{$color}.500");
+      color: theme("colors.#{$color}.950");
       border-radius: 16px;
       &:hover {
         box-shadow: none;
-        background-color: darken($color: $color, $amount: 8%);
+        background-color: theme("colors.#{$color}.600");
       }
     }
   }
