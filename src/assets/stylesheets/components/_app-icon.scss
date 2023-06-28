@@ -13,14 +13,13 @@
     padding: 2%;
     border-radius: 50%;
   }
-
-  /** BUTTON COLORS  */
-  @each $name, $color in $colors {
-    &--bg-#{$name} {
-      background-color: rgba($color: $color, $alpha: 0.3);
-    }
-    &--#{$name} {
-      color: rgba($color: $color, $alpha: 1);
-    }
+}
+/** BUTTON COLORS  */
+@each $color in $colors {
+  .icon--#{$color} {
+    color: theme("colors.#{$color}.950");
+  }
+  .icon--bg-#{$color} {
+    background-color: theme("colors.#{$color}.300");
   }
 }
