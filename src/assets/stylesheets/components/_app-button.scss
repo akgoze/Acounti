@@ -48,8 +48,6 @@
     }
   }
 
-  $colors: "yellow", "green", "blue";
-
   @each $color in $colors {
     &--#{$color} {
       background: theme("colors.#{$color}.500");
