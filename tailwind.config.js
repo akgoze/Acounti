@@ -108,6 +108,17 @@ module.exports = {
         ]
       }
     },
+
+    spacing: {
+      '1': '2px',
+      '2': '4px',
+      '3': '8px',
+      '4': '16px',
+      '5': '32px',
+    },
+    fontFamily: {
+      DEFAULT: ['Montserrat', 'ui-sans-serif', 'system-ui'],
+    }
   },
   plugins: [
     plugin(function ({addVariant}) {
