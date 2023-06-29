@@ -15,6 +15,7 @@
   "dependencies": {
     "fantasticon": "^2.0.0",
     "firebase": "^9.17.2",
+    "vite-plugin-components": "^0.13.3",
     "vue": "^3.2.45",
     "vuefire": "^3.1.0"
   },
