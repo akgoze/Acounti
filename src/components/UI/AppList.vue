@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 </script>
 <template>
-  <div class="app-list">
+  <div class="app-list flex-1">
     <slot name="prepend"></slot>
     <div class="app-list__content">
       <h3 class="app-list__title" v-html="title" v-if="title" />
