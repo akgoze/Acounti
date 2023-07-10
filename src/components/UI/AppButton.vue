@@ -2,13 +2,13 @@
 import { computed } from 'vue'
 
 export interface Props {
-  type?: string
+  type?: 'submit' | 'button' | 'reset'
   disabled?: boolean
-  size?: string
-  style?: string
+  size?: 'sm' | 'md' | 'lg'
+  style?: 'solid' | 'outline'
   color?: string
   icon?: string
-  iconPosition?: string
+  iconPosition?: 'after' | 'before'
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   size: 'md',
   style: 'solid',
-  color: 'default',
+  color: 'yellow',
   icon: '',
   iconPosition: 'before',
 })
